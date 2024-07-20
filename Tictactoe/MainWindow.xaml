@@ -12,7 +12,6 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -30,5 +29,6 @@
         <Button x:Name="Button_0_2" Click="Button_Click" Grid.Row="0" Grid.Column = "2"/>
         <Button x:Name="Button_1_2" Click="Button_Click" Grid.Row="1" Grid.Column = "2"/>
         <Button x:Name="Button_2_2" Click="Button_Click" Grid.Row="2" Grid.Column = "2"/>
+        
     </Grid>
 </Window>

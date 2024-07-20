@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -33,6 +34,7 @@ namespace Tictactoe
 		{
 			IsPlayer1Turn = false;
 			Counter = 0;
+
 			Button_0_0.Content = string.Empty;
 			Button_1_0.Content = string.Empty;
 			Button_2_0.Content = string.Empty;
@@ -59,6 +61,75 @@ namespace Tictactoe
 
 			button.Content = IsPlayer1Turn ? "O": "X";
 
+			if (CheckIfPlayerWon())
+			{
+				Counter = 9;
+			}
+
+		}
+
+		private bool CheckIfPlayerWon()
+		{
+			if (Button_0_0.Content == Button_0_1.Content && Button_0_1.Content == Button_0_2.Content && Button_0_0.Content != string.Empty)
+			{
+				Button_0_0.Background = Brushes.Green;
+				Button_0_1.Background = Brushes.Green;
+				Button_0_2.Background = Brushes.Green;
+				return true;
+			}
+			if (Button_1_0.Content == Button_1_1.Content && Button_1_1.Content == Button_1_2.Content && Button_1_0.Content != string.Empty)
+			{
+				Button_1_0.Background = Brushes.Green;
+				Button_1_1.Background = Brushes.Green;
+				Button_1_2.Background = Brushes.Green;
+				return true;
+			}
+			if (Button_2_0.Content == Button_2_1.Content && Button_2_1.Content == Button_2_2.Content && Button_2_0.Content != string.Empty)
+			{
+				Button_2_0.Background = Brushes.Green;
+				Button_2_1.Background = Brushes.Green;
+				Button_2_2.Background = Brushes.Green;
+				return true;
+			}
+
+			if (Button_0_0.Content == Button_1_0.Content && Button_1_0.Content == Button_2_0.Content && Button_0_0.Content != string.Empty)
+			{
+				Button_0_0.Background = Brushes.Green;
+				Button_1_0.Background = Brushes.Green;
+				Button_2_0.Background = Brushes.Green;
+				return true;
+			}
+			if (Button_0_1.Content == Button_1_1.Content && Button_1_1.Content == Button_2_1.Content && Button_0_1.Content != string.Empty)
+			{
+				Button_0_1.Background = Brushes.Green;
+				Button_1_1.Background = Brushes.Green;
+				Button_2_1.Background = Brushes.Green;
+				return true;
+			}
+			if (Button_0_2.Content == Button_1_2.Content && Button_1_2.Content == Button_2_2.Content && Button_0_2.Content != string.Empty)
+			{
+				Button_0_2.Background = Brushes.Green;
+				Button_1_2.Background = Brushes.Green;
+				Button_2_2.Background = Brushes.Green;
+				return true;
+			}
+
+			if (Button_0_0.Content == Button_1_1.Content && Button_1_1.Content == Button_2_2.Content && Button_0_0.Content != string.Empty)
+			{
+				Button_0_0.Background = Brushes.Green;
+				Button_1_1.Background = Brushes.Green;
+				Button_2_2.Background = Brushes.Green;
+				return true;
+			}
+			if (Button_0_2.Content == Button_1_1.Content && Button_1_1.Content == Button_2_0.Content && Button_0_2.Content != string.Empty)
+			{
+				Button_0_2.Background = Brushes.Green;
+				Button_1_1.Background = Brushes.Green;
+				Button_2_0.Background = Brushes.Green;
+				return true;
+			}
+
+			return false;
 		}
 	}
 }
