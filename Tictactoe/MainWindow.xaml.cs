@@ -20,9 +20,26 @@ namespace Tictactoe
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		public bool IsPlayer1Turn { get; set; } = true;
 		public MainWindow()
 		{
 			InitializeComponent();
+			NewGame();
+		}
+
+		public void NewGame()
+		{
+
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			IsPlayer1Turn ^= true;
+
+			var button = sender as Button;
+
+			button.Content = IsPlayer1Turn ? "O": "X";
+
 		}
 	}
 }
