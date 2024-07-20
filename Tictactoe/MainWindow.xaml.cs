@@ -56,6 +56,10 @@ namespace Tictactoe
 			Button_1_2.Content = string.Empty;
 			Button_2_2.Content = string.Empty;
 
+			Player1.Content = "Player 1 score: " + "\n"+Player1Win;
+			DrawTheGame.Content = "Draw: " + Draw;
+			Player2.Content = "Player 2 score: " + "\n" + Player2Win;
+
 			Button_0_0.Background = Brushes.White;
 			Button_1_0.Background = Brushes.White;
 			Button_2_0.Background = Brushes.White;
