@@ -20,21 +20,40 @@ namespace Tictactoe
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		public bool IsPlayer1Turn { get; set; } = true;
+		public bool IsPlayer1Turn { get; set; }
+		public int Counter { get; set; }
 		public MainWindow()
 		{
 			InitializeComponent();
 			NewGame();
 		}
 
+
 		public void NewGame()
 		{
-
+			IsPlayer1Turn = false;
+			Counter = 0;
+			Button_0_0.Content = string.Empty;
+			Button_1_0.Content = string.Empty;
+			Button_2_0.Content = string.Empty;
+			Button_0_1.Content = string.Empty;
+			Button_1_1.Content = string.Empty;
+			Button_2_1.Content = string.Empty;
+			Button_0_2.Content = string.Empty;
+			Button_1_2.Content = string.Empty;
+			Button_2_2.Content = string.Empty;
 		}
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
 			IsPlayer1Turn ^= true;
+			Counter++;
+
+			if(Counter > 9) 
+			{
+				NewGame();
+				return;
+			}
 
 			var button = sender as Button;
 

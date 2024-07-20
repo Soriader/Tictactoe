@@ -12,6 +12,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -20,14 +21,14 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Button Click="Button_Click" Grid.Row="0" Grid.Column = "0"/>
-        <Button Click="Button_Click" Grid.Row="1" Grid.Column = "0"/>
-        <Button Click="Button_Click" Grid.Row="2" Grid.Column = "0"/>
-        <Button Click="Button_Click" Grid.Row="0" Grid.Column = "1"/>
-        <Button Click="Button_Click" Grid.Row="1" Grid.Column = "1"/>
-        <Button Click="Button_Click" Grid.Row="2" Grid.Column = "1"/>
-        <Button Click="Button_Click" Grid.Row="0" Grid.Column = "2"/>
-        <Button Click="Button_Click" Grid.Row="1" Grid.Column = "2"/>
-        <Button Click="Button_Click" Grid.Row="2" Grid.Column = "2"/>
+        <Button x:Name="Button_0_0" Click="Button_Click" Grid.Row="0" Grid.Column = "0"/>
+        <Button x:Name="Button_1_0" Click="Button_Click" Grid.Row="1" Grid.Column = "0"/>
+        <Button x:Name="Button_2_0" Click="Button_Click" Grid.Row="2" Grid.Column = "0"/>
+        <Button x:Name="Button_0_1" Click="Button_Click" Grid.Row="0" Grid.Column = "1"/>
+        <Button x:Name="Button_1_1" Click="Button_Click" Grid.Row="1" Grid.Column = "1"/>
+        <Button x:Name="Button_2_1" Click="Button_Click" Grid.Row="2" Grid.Column = "1"/>
+        <Button x:Name="Button_0_2" Click="Button_Click" Grid.Row="0" Grid.Column = "2"/>
+        <Button x:Name="Button_1_2" Click="Button_Click" Grid.Row="1" Grid.Column = "2"/>
+        <Button x:Name="Button_2_2" Click="Button_Click" Grid.Row="2" Grid.Column = "2"/>
     </Grid>
 </Window>
