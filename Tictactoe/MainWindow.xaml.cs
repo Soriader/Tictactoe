@@ -44,6 +44,16 @@ namespace Tictactoe
 			Button_0_2.Content = string.Empty;
 			Button_1_2.Content = string.Empty;
 			Button_2_2.Content = string.Empty;
+
+			Button_0_0.Background = Brushes.White;
+			Button_1_0.Background = Brushes.White;
+			Button_2_0.Background = Brushes.White;
+			Button_0_1.Background = Brushes.White;
+			Button_1_1.Background = Brushes.White;
+			Button_2_1.Background = Brushes.White;
+			Button_0_2.Background = Brushes.White;
+			Button_1_2.Background = Brushes.White;
+			Button_2_2.Background = Brushes.White;
 		}
 
 		private void Button_Click(object sender, RoutedEventArgs e)
