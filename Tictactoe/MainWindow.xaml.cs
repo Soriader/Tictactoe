@@ -23,6 +23,9 @@ namespace Tictactoe
 	{
 		public bool IsPlayer1Turn { get; set; }
 		public int Counter { get; set; }
+		public int Player1Win { get; set; }
+		public int Player2Win { get; set; }
+		public int Draw { get; set; }
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -34,6 +37,14 @@ namespace Tictactoe
 		{
 			IsPlayer1Turn = false;
 			Counter = 0;
+
+			if (Player1Win == 3 || Player2Win == 3)
+			{
+				Player1Win = 0;
+				Player2Win = 0;
+				Draw = 0;
+			}
+
 
 			Button_0_0.Content = string.Empty;
 			Button_1_0.Content = string.Empty;
@@ -58,22 +69,40 @@ namespace Tictactoe
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			IsPlayer1Turn ^= true;
-			Counter++;
-
-			if(Counter > 9) 
-			{
-				NewGame();
+			if (!(sender is Button button) || !string.IsNullOrEmpty(button.Content.ToString()))
 				return;
-			}
 
-			var button = sender as Button;
-
-			button.Content = IsPlayer1Turn ? "O": "X";
+			button.Content = IsPlayer1Turn ? "O" : "X";
+			Counter++;
 
 			if (CheckIfPlayerWon())
 			{
+				if (IsPlayer1Turn)
+				{
+					Player1Win++;
+				}
+				else
+				{
+					Player2Win++;
+				}
+
 				Counter = 9;
+
+				Dispatcher.Invoke(async () =>
+				{
+					await Task.Delay(2000);
+					NewGame();
+				});
+
+			}
+			else if (Counter == 9)
+			{
+				Draw++;
+				NewGame();
+			}
+			else
+			{
+				IsPlayer1Turn ^= true;
 			}
 
 		}
@@ -140,6 +169,8 @@ namespace Tictactoe
 			}
 
 			return false;
+
 		}
-	}
-}
+	} 
+} 
+
