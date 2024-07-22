@@ -101,11 +101,7 @@ namespace Tictactoe
 
 				Counter = 9;
 
-				Dispatcher.Invoke(async () =>
-				{
-					await Task.Delay(2000);
-					NewGame();
-				});
+				PleaseLate();
 
 			}
 			else if (Counter == 9)
@@ -121,11 +117,7 @@ namespace Tictactoe
 				Button_1_2.Background = Brushes.Yellow;
 				Button_2_2.Background = Brushes.Yellow;
 
-				Dispatcher.Invoke(async () =>
-				{
-					await Task.Delay(2000);
-					NewGame();
-				});
+				PleaseLate();
 			}
 			else
 			{
@@ -134,6 +126,14 @@ namespace Tictactoe
 
 		}
 
+		private void PleaseLate()
+		{
+			Dispatcher.Invoke(async () =>
+			{
+				await Task.Delay(2000);
+				NewGame();
+			});
+		}
 		private bool CheckIfPlayerWon()
 		{
 			if (Button_0_0.Content == Button_0_1.Content && Button_0_1.Content == Button_0_2.Content && Button_0_0.Content != string.Empty)
