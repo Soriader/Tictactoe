@@ -26,6 +26,7 @@ namespace Tictactoe
 		public int Player1Win { get; set; }
 		public int Player2Win { get; set; }
 		public int Draw { get; set; }
+
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -35,7 +36,7 @@ namespace Tictactoe
 
 		public void NewGame()
 		{
-			IsPlayer1Turn = false;
+			IsPlayer1Turn = true;
 			Counter = 0;
 
 			if (Player1Win == 3 || Player2Win == 3)
@@ -56,9 +57,9 @@ namespace Tictactoe
 			Button_1_2.Content = string.Empty;
 			Button_2_2.Content = string.Empty;
 
-			Player1.Content = "Player 1 score: " + "\n"+Player1Win;
+			Player1.Content = "Player 1 score: " +Player1Win;
 			DrawTheGame.Content = "Draw: " + Draw;
-			Player2.Content = "Player 2 score: " + "\n" + Player2Win;
+			Player2.Content = "Player 2 score: " + Player2Win;
 
 			Button_0_0.Background = Brushes.White;
 			Button_1_0.Background = Brushes.White;
@@ -84,10 +85,18 @@ namespace Tictactoe
 				if (IsPlayer1Turn)
 				{
 					Player1Win++;
+					if(Player1Win == 3)
+					{
+						Player1.Content = "Player 1 win!";
+					}
 				}
 				else
 				{
 					Player2Win++;
+					if (Player2Win == 3)
+					{
+						Player2.Content = "Player 2 win!";
+					}
 				}
 
 				Counter = 9;
@@ -102,7 +111,21 @@ namespace Tictactoe
 			else if (Counter == 9)
 			{
 				Draw++;
-				NewGame();
+				Button_0_0.Background = Brushes.Yellow;
+				Button_1_0.Background = Brushes.Yellow;
+				Button_2_0.Background = Brushes.Yellow;
+				Button_0_1.Background = Brushes.Yellow;
+				Button_1_1.Background = Brushes.Yellow;
+				Button_2_1.Background = Brushes.Yellow;
+				Button_0_2.Background = Brushes.Yellow;
+				Button_1_2.Background = Brushes.Yellow;
+				Button_2_2.Background = Brushes.Yellow;
+
+				Dispatcher.Invoke(async () =>
+				{
+					await Task.Delay(2000);
+					NewGame();
+				});
 			}
 			else
 			{
