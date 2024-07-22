@@ -85,7 +85,9 @@ namespace Tictactoe
 				if (IsPlayer1Turn)
 				{
 					Player1Win++;
-					if(Player1Win == 3)
+					Player1.Content = "Player 1 score a point!";
+
+					if (Player1Win == 3)
 					{
 						Player1.Content = "Player 1 win!";
 					}
@@ -93,6 +95,8 @@ namespace Tictactoe
 				else
 				{
 					Player2Win++;
+					Player2.Content = "Player 2 score a point!";
+
 					if (Player2Win == 3)
 					{
 						Player2.Content = "Player 2 win!";
